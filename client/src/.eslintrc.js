@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    parser: "@babel/eslint-parser"
+    parser: '@babel/eslint-parser'
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: ['plugin:vue/essential', 'standard'],

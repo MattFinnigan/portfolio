@@ -1,15 +1,27 @@
 <template>
-  <div>
-    <p>Hello</p>
-    <div></div>
+  <div class="wrapper">
+    <div class="container">
+      <NavBar/>
+      <main>
+        <div class="page">
+          <LandingView/>
+        </div>
+      </main>
+    </div>
   </div>
+
 </template>
 
 <script>
 import { getAllProjects } from './utils/actions'
+import NavBar from './components/NavBar.vue'
+import LandingView from './views/LandingView.vue'
 
 export default {
-  name: 'App',
+  components: {
+    NavBar,
+    LandingView
+  },
   mounted () {
     getAllProjects().then((res) => {
       console.log(res)
@@ -18,5 +30,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .wrapper {
+    background: $background;
+    overflow: hidden;
+    .container {
+      align-items: center;
+      position: relative;
+      padding: 0.785em;
+      .page {
+        height: 100vh;
+        display:flex;
+        align-items:center;
+      }
+    }
+  }
 </style>
