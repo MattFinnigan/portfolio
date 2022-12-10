@@ -6,6 +6,9 @@
         <div class="page">
           <LandingView/>
         </div>
+        <div class="page">
+          <WorkHistoryView/>
+        </div>
       </main>
     </div>
   </div>
@@ -13,19 +16,15 @@
 </template>
 
 <script>
-import { getAllProjects } from './utils/actions'
 import NavBar from './components/NavBar.vue'
 import LandingView from './views/LandingView.vue'
+import WorkHistoryView from './views/WorkHistoryView.vue'
 
 export default {
   components: {
     NavBar,
-    LandingView
-  },
-  mounted () {
-    getAllProjects().then((res) => {
-      console.log(res)
-    })
+    LandingView,
+    WorkHistoryView
   }
 }
 </script>
@@ -35,9 +34,10 @@ export default {
     background: $background;
     overflow: hidden;
     .container {
-      align-items: center;
       position: relative;
       padding: 0.785em;
+      max-width: 1000px;
+      margin: 0 auto;
       .page {
         height: 100vh;
         display:flex;

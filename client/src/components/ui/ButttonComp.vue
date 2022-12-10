@@ -14,12 +14,13 @@ export default {
   button {
     background: $background;
     font-family: $font-mono;
-    border-color: $green-tint;
+    border: 1px solid $green-tint;
     color: $green-tint;
     outline: none;
     border-radius: 5px;
     padding: 0.5em 0.785em;
     height:36px;
     line-height: 0;
+    font-size: $fs-med;
   }
 </style>

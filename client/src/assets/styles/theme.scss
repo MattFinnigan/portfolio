@@ -1,13 +1,26 @@
-$background:#0a192f;
-$green-tint: rgba(100, 255, 219, 0.68);
-
-$primary: #8892b0;
-$heading: #ccd6f6;
-
-$font-sans: "Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
-$font-mono: "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
-
-
-h1 {
+@use './variables.scss';
+* {
+  color: $primary;
   font-family: $font-sans;
+}
+h1, h2, h3 {
+  color: $heading;
+}
+h2 {
+  font-size: $fs-heading;
+}
+h3 {
+  font-size: $fs-xxl;
+  font-weight: 600;
+}
+a {
+  color: $green;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;;
+  }
+}
+
+.mono {
+  font-family: $font-mono;
 }

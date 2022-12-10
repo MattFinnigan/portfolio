@@ -7,3 +7,11 @@ export const getAllProjects = () => {
     })
   })
 }
+
+export const getAllWorkHistory = () => {
+  return new Promise((resolve, reject) => {
+    axios.get('/api/roles/all').then((resp) => {
+      resolve(resp)
+    })
+  })
+}

@@ -1,0 +1,18 @@
+$background:#0a192f;
+$primary: #8892b0;
+$heading: #ccd6f6;
+
+$green-tint: rgba(100, 255, 219, 0.68);
+$green: #64ffda;
+$lightest-navy: #233554;
+
+$font-sans: "Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
+$font-mono: "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
+
+$fs-largest: clamp(40px, 8vw, 80px);
+$fs-large:clamp(35px, 8vw, 70px);
+$fs-med: clamp(16px, 8vw, 18px);
+$fs-heading: 32px;
+$fs-xs: 13px;
+$fs-xl: 20px;
+$fs-xxl: 20px;
