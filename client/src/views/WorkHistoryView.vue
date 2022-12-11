@@ -1,6 +1,6 @@
 <template>
-  <div class="work-container">
-    <div class="title"><h2>Work History</h2></div>
+  <div class="work-view">
+    <h2>Work History</h2>
     <div v-if="currRole" class="history-contain">
       <ul class="company-list">
         <li
@@ -48,11 +48,15 @@ export default {
 
 <style lang="scss" scoped>
   @import '../assets/styles/theme.scss';
-  .work-container {
+  .work-view {
     width: 100%;
+    min-height: 75vh;
     .history-contain {
       display: flex;
       flex-direction: column;
+      @media (min-width: 900px) {
+        flex-direction: row;
+      }
       .company-list {
         display: flex;
         overflow-x: scroll;
@@ -63,11 +67,20 @@ export default {
         &::webkit-scrollbar {
           display:none;
         }
+        @media (min-width:900px) {
+          flex-direction: column;
+          overflow-x: visible;
+          margin-right: 2em;
+        }
         .company {
           font-family: $font-mono;
           border-bottom: 3px solid $lightest-navy;
           padding: 0.75em 1em;
           cursor: pointer;
+          @media (min-width:900px) {
+            border-bottom: none;
+            border-left: 3px solid $lightest-navy;
+          }
           &.active {
             border-color: $green;
             color: $green;
@@ -78,7 +91,7 @@ export default {
         h3 {
           margin-bottom: 0;
           span {
-            color: $heading;
+            color: $secondary;
           }
         }
         p {

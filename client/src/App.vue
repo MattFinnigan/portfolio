@@ -3,11 +3,14 @@
     <div class="container">
       <NavBar/>
       <main>
-        <div class="page">
+        <div class="page landing">
           <LandingView/>
         </div>
         <div class="page">
           <WorkHistoryView/>
+        </div>
+        <div class="page">
+          <ProjectsView/>
         </div>
       </main>
     </div>
@@ -19,12 +22,14 @@
 import NavBar from './components/NavBar.vue'
 import LandingView from './views/LandingView.vue'
 import WorkHistoryView from './views/WorkHistoryView.vue'
+import ProjectsView from './views/ProjectsView.vue'
 
 export default {
   components: {
     NavBar,
     LandingView,
-    WorkHistoryView
+    WorkHistoryView,
+    ProjectsView
   }
 }
 </script>
@@ -39,9 +44,12 @@ export default {
       max-width: 1000px;
       margin: 0 auto;
       .page {
-        height: 100vh;
         display:flex;
         align-items:center;
+        min-height: 50vh;
+        &.landing {
+          min-height: 100vh;
+        }
       }
     }
   }

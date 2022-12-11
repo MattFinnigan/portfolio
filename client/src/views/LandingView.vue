@@ -1,5 +1,5 @@
 <template>
-  <div class="landing-container">
+  <div class="landing-view">
     <p class="mono">Hello, my name is</p>
     <h1 class="name-heading">Matt Finnigan.</h1>
     <h1 class="role-heading">I build things for the web.</h1>
@@ -32,7 +32,7 @@ export default {
   }
   h1 {
     font-family: $font-sans;
-    color: $heading;
+    color: $secondary;
     font-size: $fs-largest;
     margin-top: 20px;
     margin-bottom: 5px;
