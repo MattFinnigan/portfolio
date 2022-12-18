@@ -3,8 +3,8 @@
     <nav>
       <div class="logo-contain"><i class="logo"></i></div>
       <div class="icons">
-        <i class="github"></i>
-        <i class="linkdin"></i>
+        <a href="https://github.com/MattFinnigan" target="_blank"><i class="github"></i></a>
+        <a href="https://www.linkedin.com/in/matt-finnigan-13987a192/" target="_blank"><i class="linkdin"></i></a>
         <ButtonComp text="Resume"/>
       </div>
     </nav>
@@ -51,8 +51,11 @@ export default {
         width: 2.25em;
         height: 2.25em;
         mask-size: 70%;
+        cursor: pointer;
         &.logo {
-          mask-image: url('../assets/img/outlook.svg');
+          mask-image: url('../assets/img/logo.png');
+          background-color: $green;
+          mask-size: 100%;
         }
         &.email {
           mask-image: url('../assets/img/outlook.svg');
@@ -62,6 +65,9 @@ export default {
         }
         &.linkdin {
           mask-image: url('../assets/img/linkdin.svg');
+        }
+        &:hover {
+          background: $green;
         }
       }
     }

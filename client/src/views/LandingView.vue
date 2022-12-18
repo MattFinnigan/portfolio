@@ -5,7 +5,7 @@
     <h1 class="role-heading">I build things for the web.</h1>
     <p>I'm a full-stack web developer based in Melbourne, VIC Australia. I have developed many types of websites from internationally recognized companys to small local businesses.</p>
     <div class="cta-button">
-      <ButtonComp text="Learn More" />
+      <ButtonComp text="Learn More" @click="$emit('scrollToAbout')"/>
     </div>
   </div>
 </template>

@@ -3,17 +3,26 @@
     <div class="container">
       <NavBar/>
       <main>
-        <div class="page landing">
-          <LandingView/>
-        </div>
-        <div class="page">
+        <section class="landing">
+          <LandingView @scrollToAbout="scrollToAbout"/>
+        </section>
+        <section class="about">
+          <AboutView/>
+        </section>
+        <section>
           <WorkHistoryView/>
-        </div>
-        <div class="page">
+        </section>
+        <section>
           <ProjectsView/>
-        </div>
+        </section>
+        <section>
+          <ContactView/>
+        </section>
       </main>
     </div>
+    <footer>
+      <p>Built by Matt Finnigan</p>
+    </footer>
   </div>
 
 </template>
@@ -23,13 +32,22 @@ import NavBar from './components/NavBar.vue'
 import LandingView from './views/LandingView.vue'
 import WorkHistoryView from './views/WorkHistoryView.vue'
 import ProjectsView from './views/ProjectsView.vue'
+import ContactView from './views/ContactView.vue'
+import AboutView from './views/AboutView.vue'
 
 export default {
   components: {
     NavBar,
     LandingView,
     WorkHistoryView,
-    ProjectsView
+    ProjectsView,
+    ContactView,
+    AboutView
+  },
+  methods: {
+    scrollToAbout () {
+      document.querySelectorAll('.about')[0].scrollIntoView({ behavior: 'smooth' })
+    }
   }
 }
 </script>
@@ -43,14 +61,27 @@ export default {
       padding: 0.785em;
       max-width: 1000px;
       margin: 0 auto;
-      .page {
+      section {
         display:flex;
         align-items:center;
-        min-height: 50vh;
+        padding: 100px 0;
+        &.about {
+          padding-top: 0;
+        }
         &.landing {
           min-height: 100vh;
+          padding: 0;
+        }
+        &:last-child {
+          margin-bottom: 100px;
         }
       }
+    }
+    footer {
+      margin: 0 auto;
+      text-align: center;
+      color: $secondary;
+      font-family: $font-sans;
     }
   }
 </style>

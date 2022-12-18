@@ -22,5 +22,10 @@ export default {
     height:36px;
     line-height: 0;
     font-size: $fs-med;
+    &:hover {
+      cursor: pointer;
+      background: $green-tint;
+      color: $background;
+    }
   }
 </style>

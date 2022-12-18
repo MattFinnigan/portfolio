@@ -50,7 +50,6 @@ export default {
   @import '../assets/styles/theme.scss';
   .work-view {
     width: 100%;
-    min-height: 75vh;
     .history-contain {
       display: flex;
       flex-direction: column;
