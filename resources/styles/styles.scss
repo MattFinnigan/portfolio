@@ -1,0 +1,58 @@
+@import './partials/_colours.scss';
+@import './partials/_typography.scss';
+@import './partials/_devices.scss';
+
+* {
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  body {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+h1 {
+  @include heading;
+}
+h2 {
+  @include subheading;
+}
+
+p {
+  font-size: $fontSize-m;
+}
+
+a {
+  color: $linkColour;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button, a.button {
+  padding: 8px 10px;
+  margin: 5px;
+  border-radius: 0.5em;
+  font-size: $fontSize-m;
+  border: 1px solid;
+  &.primary {
+    background-color: $theme-red;
+    color: $theme-white;
+    &:hover {
+      background-color: darken($theme-red, 10%);
+    }
+  }
+  &.secondary {
+    background-color: $theme-white;
+    color: $theme-blue;
+    &:hover {
+      background-color: $theme-blue;
+      color: $theme-white;
+    }
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
