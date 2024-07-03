@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavigationBar/>
-    <main class="container">
+    <main>
       <router-view/>
     </main>
   </div>
@@ -18,9 +18,8 @@ export default {
 </script>
 
 <style lang="scss">
-  .container {
-    margin: 0 auto;
-    max-width: 1080px;
-    padding: 20px;
+  body {
+    margin: 0;
+    padding: 0;
   }
 </style>
