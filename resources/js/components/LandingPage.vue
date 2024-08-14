@@ -27,6 +27,7 @@
             <li>MySQL</li>
             <li>Git</li>
             <li>Webpack</li>
+            <li>& much more!</li>
           </ul>
         </div>
       </div>
