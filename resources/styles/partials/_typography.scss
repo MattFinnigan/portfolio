@@ -1,18 +1,41 @@
+@use "colours";
+
 $fontSize-xl: 2.5em;
 $fontSize-l: 1.5em;
 $fontSize-m: 1em;
 $fontSize-s: 0.85em;
 
-@mixin heading {
-  font-weight: 700;
-  line-height: 1.2;
-  color: $textColour;
-  font-size: $fontSize-xl;
-}
-
-@mixin subheading {
+@mixin h1 {
   font-weight: normal;
   line-height: 1.2;
-  color: $textColour;
-  font-size: $fontSize-l;
+  color: colours.$textColour;
+  font-size: 3.812rem;
+}
+
+@mixin h2 {
+  font-weight: normal;
+  line-height: 1.2;
+  color: colours.$textColour;
+  font-size: 3.062rem;
+}
+
+@mixin h3 {
+  font-weight: normal;
+  line-height: 1.2;
+  color: colours.$textColour;
+  font-size: 2.438rem;
+}
+
+@mixin h4 {
+  font-weight: normal;
+  line-height: 1.2;
+  color: colours.$textColour;
+  font-size: 1.938rem;
+}
+
+@mixin h6 {
+  font-weight: normal;
+  line-height: 1.2;
+  color: colours.$textColour;
+  font-size: 1.125rem;
 }

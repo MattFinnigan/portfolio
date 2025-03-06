@@ -1,0 +1,78 @@
+{
+  "resources/js/app.js": {
+    "file": "assets/app-DVOxugMA.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-DK0H3QVc.css"
+    ],
+    "assets": [
+      "assets/attribs-9oS8mNCP.txt",
+      "assets/auralia-BH_SSYke.png",
+      "assets/git-DJHrNOw3.png",
+      "assets/laravel-DNfGyyND.png",
+      "assets/logo-light-BXNz9ZU5.png",
+      "assets/logo-primary-CSMh1pDf.png",
+      "assets/logo-B7X2RCbs.png",
+      "assets/mysql-D1fmG43W.png",
+      "assets/penrite-DXjjx9Cl.png",
+      "assets/profile-pic-DhkWgaoH.jpeg",
+      "assets/react-DIuD0qnA.png",
+      "assets/skills-hero-CNmw1y9M.png",
+      "assets/vue-CHTcNckV.png"
+    ]
+  },
+  "resources/js/assets/attribs.txt": {
+    "file": "assets/attribs-9oS8mNCP.txt",
+    "src": "resources/js/assets/attribs.txt"
+  },
+  "resources/js/assets/auralia.png": {
+    "file": "assets/auralia-BH_SSYke.png",
+    "src": "resources/js/assets/auralia.png"
+  },
+  "resources/js/assets/git.png": {
+    "file": "assets/git-DJHrNOw3.png",
+    "src": "resources/js/assets/git.png"
+  },
+  "resources/js/assets/laravel.png": {
+    "file": "assets/laravel-DNfGyyND.png",
+    "src": "resources/js/assets/laravel.png"
+  },
+  "resources/js/assets/logo-light.png": {
+    "file": "assets/logo-light-BXNz9ZU5.png",
+    "src": "resources/js/assets/logo-light.png"
+  },
+  "resources/js/assets/logo-primary.png": {
+    "file": "assets/logo-primary-CSMh1pDf.png",
+    "src": "resources/js/assets/logo-primary.png"
+  },
+  "resources/js/assets/logo.png": {
+    "file": "assets/logo-B7X2RCbs.png",
+    "src": "resources/js/assets/logo.png"
+  },
+  "resources/js/assets/mysql.png": {
+    "file": "assets/mysql-D1fmG43W.png",
+    "src": "resources/js/assets/mysql.png"
+  },
+  "resources/js/assets/penrite.png": {
+    "file": "assets/penrite-DXjjx9Cl.png",
+    "src": "resources/js/assets/penrite.png"
+  },
+  "resources/js/assets/profile-pic.jpeg": {
+    "file": "assets/profile-pic-DhkWgaoH.jpeg",
+    "src": "resources/js/assets/profile-pic.jpeg"
+  },
+  "resources/js/assets/react.png": {
+    "file": "assets/react-DIuD0qnA.png",
+    "src": "resources/js/assets/react.png"
+  },
+  "resources/js/assets/skills-hero.png": {
+    "file": "assets/skills-hero-CNmw1y9M.png",
+    "src": "resources/js/assets/skills-hero.png"
+  },
+  "resources/js/assets/vue.png": {
+    "file": "assets/vue-CHTcNckV.png",
+    "src": "resources/js/assets/vue.png"
+  }
+}

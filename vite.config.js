@@ -7,7 +7,16 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "resources/styles/styles.scss";`
+        additionalData: `
+          @forward "resources/styles/styles.scss";
+          @forward "resources/styles/partials/_colours.scss";
+          @forward "resources/styles/partials/_typography.scss";
+          @forward "resources/styles/partials/_devices.scss";
+          @use "resources/styles/styles.scss";
+          @use "resources/styles/partials/_colours.scss";
+          @use "resources/styles/partials/_typography.scss";
+          @use "resources/styles/partials/_devices.scss";
+        `
       }
     }
   },
@@ -20,7 +29,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      vue: "vue/dist/vue.esm-bundler.js",
+      vue: "vue/dist/vue.esm-bundler.js"
     }
   }
 })

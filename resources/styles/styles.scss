@@ -1,6 +1,10 @@
-@import './partials/_colours.scss';
-@import './partials/_typography.scss';
-@import './partials/_devices.scss';
+@use "sass:color";
+@use 'partials/_colours.scss';
+@use 'partials/_typography.scss';
+@use 'partials/_devices.scss';
+@forward 'partials/_colours.scss';
+@forward 'partials/_typography.scss';
+@forward 'partials/_devices.scss';
 
 * {
   -webkit-font-smoothing: antialiased; 
@@ -16,51 +20,63 @@
 
 .container {
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 1200px;
   padding: 20px;
 }
 
 h1 {
-  @include heading;
+  @include typography.h1;
 }
 h2 {
-  @include subheading;
+  @include typography.h2;
 }
-
+h3 {
+  @include typography.h3;
+}
+h4 {
+  @include typography.h4;
+}
+h6 {
+  @include typography.h6;
+}
 p {
-  font-size: $fontSize-m;
+  font-size: typography.$fontSize-m;
 }
 
 a {
-  color: $linkColour;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+  color: colours.$linkColour;
 }
 
 button, a.button {
-  padding: 8px 10px;
+  padding: 0.4em 1em;
   margin: 5px;
   border-radius: 0.5em;
-  font-size: $fontSize-m;
-  border: 1px solid;
+  font-size: typography.$fontSize-m;
+  border: none;
+  text-decoration: none;
   &.primary {
-    background-color: $theme-red;
-    color: $theme-white;
+    background-color: colours.$primary;
+    color: colours.$background;
     &:hover {
-      background-color: darken($theme-red, 10%);
+      background-color: color.adjust(colours.$primary, $lightness: -10%);
     }
   }
   &.secondary {
-    background-color: $theme-white;
-    color: $theme-blue;
+    background-color: colours.$secondary;
+    color: colours.$textColour;
     &:hover {
-      background-color: $theme-blue;
-      color: $theme-white;
+      background-color: color.adjust(colours.$secondary, $lightness: -10%);
     }
   }
   &:hover {
     text-decoration: none;
+    cursor: pointer;
+  }
+  &.large {
+    padding: 0.65em 1.3em;
+    font-size: 1.125rem;
+  }
+  &.full {
+    width: 100%;
   }
 }
