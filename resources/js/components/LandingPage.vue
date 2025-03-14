@@ -4,8 +4,8 @@
       <div class="info-contain">
         <h1>Hello, I'm Matt & I'm a Full Stack Web Engineer</h1>
         <div class="buttons-contain">
-          <router-link to="/projects" class="button secondary large">See my work</router-link>
-          <router-link to="/contact" class="button primary large">Let's work together</router-link>
+          <button class="secondary large" @click="scrollTo('projects')">See my work</button>
+          <button class="primary large" @click="scrollTo('contact')">Let's work together</button>
         </div>
       </div>
       <div class="gfx-contain">
@@ -14,7 +14,7 @@
         <div class="shape shape-3"></div>
       </div>
     </section>
-    <section class="exp-contain container">
+    <section class="exp-contain container" id="exp">
       <h2>Skills & Experience</h2>
       <div class="buttons-contain">
         <button :class="['button', 'secondary', 'full', 'large', { active: expActive === 'technical' }]" @click="expActive = 'technical'">Technical</button>
@@ -52,9 +52,18 @@
             <li>Conducting user interface & user experience research and design to enhance website usability and user satisfaction.</li>
           </ul>
         </div>
+        <div class="graphic-contain">
+          <div class="graphic-inner">
+            <img src="@/assets/react.png"/>
+            <img src="@/assets/mysql.png"/>
+            <img src="@/assets/laravel.png"/>
+            <img src="@/assets/git.png"/>
+            <img src="@/assets/vue.png"/>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="projects-contain container">
+    <section class="projects-contain container" id="projects">
       <h2>Projects</h2>
       <div v-if="currProject" class="current-project">
         <h4>{{ currProject.name }}</h4>
@@ -83,21 +92,55 @@
           </div>
         </div>
       </div>
-      <div class="project-list">
-        <div v-for="project in projects" @click="currProject = project" :key="project.name">
-          <h4>{{ project.name }}</h4>
-          <div class="image-contain">
+      <div class="project-cards">
+        <Card v-for="project in projects" :key="project.name">
+          <template v-slot:image>
             <img :src="project.image" alt="Project image"/>
+          </template>
+          <template v-slot:heading>
+            <p>{{ project.name }}</p>
+          </template>
+          <template v-slot:content>
+            <div class="icons-contain">
+              <img v-for="tech in project.tech" :key="tech" :src="tech" alt="Tech icon"/>
+            </div>
+          </template>
+        </Card>
+      </div>
+    </section>
+    <section class="contact-contain container" id="contact">
+      <h2>Contact</h2>
+      <p>Want to work together? I'd love to hear from you!</p>
+      <div class="form-container">
+        <form @submit.prevent="handleSubmit">
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input v-model="form.name" type="text" id="name" name="name" required/>
           </div>
-        </div>
+          <div class="form-group">
+            <label for="email">Your email</label>
+            <input v-model="form.email" type="email" id="email" name="email" required/>
+          </div>
+          <div class="form-group">
+            <label for="message">Your message</label>
+            <textarea v-model="form.message" id="message" name="message" required></textarea>
+          </div>
+          <div class="submit-contain">
+            <button type="submit" class="button large primary">Submit</button>
+          </div>
+        </form>
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import Card from './common/Card.vue'
 export default {
   name: 'LandingPage',
+  components: {
+    Card
+  },
   props: {
     msg: String
   },
@@ -106,14 +149,21 @@ export default {
       expActive: 'technical',
       projActive: 'technical',
       currProject: null,
-      projects: []
+      projects: [],
+      form: {
+        name: '',
+        email: '',
+        message: ''
+      }
     }
   },
   mounted () {
+    document.title = 'MFWebDesign'
     const pjs = [
       {
         name: 'Auralia & Musition',
         link: { text: 'An ear training & music theory learning platform for universities, high schools & independent learners. (Front end development)', url: 'https://www.risingsoftware.com' },
+        tech: ['vue', 'git'],
         points: {
           technical: [
             'Collaborate with back end, database, and other front end devs in designing, developing & maintaining the app',
@@ -130,8 +180,9 @@ export default {
         image: 'auralia.png'
       },
       {
-        name: 'Penrite Oil',
+        name: 'Penrite Oil Website',
         link: { text: 'An end-user platform for Penrite Oil, a leading Australian oil manufacturer (Full stack development)', url: 'https://penriteoil.com.au/' },
+        tech: ['vue', 'laravel', 'mysql', 'git'],
         points: {
           technical: [
             'Collaborate with other devs & designers in designing, developing & maintaining the website & product selector app',
@@ -152,9 +203,21 @@ export default {
     ]
     pjs.forEach((project, i) => {
       project.image = new URL(`../assets/${project.image}`, import.meta.url).href
+      project.tech.forEach((tech, j) => {
+        project.tech[j] = new URL(`../assets/${tech}.png`, import.meta.url).href
+      })
     })
     this.projects = pjs
     this.currProject = this.projects[0]
+  },
+  methods: {
+    handleSubmit () {
+      console.log(this.form)
+    },
+    scrollTo (id) {
+      const el = document.getElementById(id)
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 }
 </script>
@@ -162,15 +225,70 @@ export default {
 .landing-page {
   margin: 0 auto;
   section {
-    overflow-x: hidden;
+    padding: 25px;
+    padding-bottom: 110px;
+    scroll-margin: 55px;
+    h2, h4 {
+      text-align: center;
+      margin: 0;
+      margin-bottom: 1em;
+    }
+    h2 {
+      overflow: hidden;
+      margin-left: -25px;
+      margin-right: -25px;
+      &::before, &::after {
+        background-color: colours.$textColour;
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+        margin-top: -6px;
+      }
+      &::before {
+        right: 0.5em;
+        margin-left: -50%;
+      }
+      &::after {
+        left: 0.5em;
+        margin-right: -50%;
+      }
+      @include devices.device('phone', 'all') {
+        &::before {
+          right: 0.2em;
+        }
+        &::after {
+          left: 0.2em;
+        }
+      }
+    }
+    ul {
+      padding-left: 1.8em;
+      list-style-type: disclosure-closed;
+      li {
+        margin-bottom: 0.5em;
+        padding-left: 5px;
+        &::marker {
+          font-size: 1.65em;
+        }
+      }
+    }
+    .buttons-contain {
+      display: flex;
+      button.active {
+        background-color: colours.$textColour;
+        color: colours.$background;
+      }
+    }
   }
   .introduction-contain {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 450px;
-  }
-  .introduction-contain {
+    background: colours.$dark;
     .info-contain {
       height: 300px;
       flex: 0.5;
@@ -247,31 +365,8 @@ export default {
       }
     }
   }
-  section {
-    padding: 20px;
-    h2, h4 {
-      text-align: center;
-      margin: 0;
-      margin-bottom: 1em;
-    }
-    ul {
-      padding-left: 1.8em;
-      list-style-type: disclosure-closed;
-      li {
-        margin-bottom: 0.5em;
-        padding-left: 5px;
-        &::marker {
-          font-size: 1.65em;
-        }
-      }
-    }
-    .buttons-contain {
-      display: flex;
-      button.active {
-        background-color: colours.$textColour;
-        color: colours.$background;
-      }
-    }
+  .exp-contain {
+    margin-top: -55px;
     .exp-info-contain {
       margin-top: 2em;
       display: flex;
@@ -314,6 +409,12 @@ export default {
         }
       }
     }
+  }
+  .projects-contain {
+    background: colours.$dark;
+    h2 {
+      margin-top: -55px;
+    }
     .project-content {
       display: flex;
       gap: 20px;
@@ -327,27 +428,54 @@ export default {
       .text-contain .link-contain {
         margin-top: 1em;
       }
-      padding-bottom: 2em;
     }
-    .project-list {
-      border-top: 1px solid colours.$secondary;
-      padding-top: 3em;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    .project-cards {
+      margin-top: 2em;
+      display: flex;
       gap: 20px;
-      div {
-        cursor: pointer;
-        h4 {
-          margin: 0;
-          margin-bottom: 0.5em;
+      flex-wrap: wrap;
+      .icons-contain {
+        img {
+          width: 17px;
+          height: auto;
+          margin-right: 15px;
         }
-        .image-contain {
-          text-align: center;
-          img {
-            width: 100%;
-            border-radius: 0.5em;
-            width: 80%;
+      }
+    }
+  }
+  .contact-contain {
+    h2 {
+      margin-top: -55px;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    .form-container {
+      display: flex;
+      justify-content: center;
+      form {
+        width: 50%;
+        .form-group {
+          margin-bottom: 1em;
+          label {
+            display: block;
+            margin-bottom: 0.5em;
+            text-align: left;
           }
+          input, textarea {
+            width: 100%;
+            padding: 0.5em;
+            border-radius: 0.5em;
+            border: 1px solid colours.$textColour;
+          }
+          textarea {
+            height: 150px;
+          }
+        }
+        .submit-contain {
+          display: flex;
+          justify-content: center;
         }
       }
     }
@@ -367,12 +495,9 @@ export default {
         max-width: 400px;
         margin: 0 auto;
       }
-    }
-    .project-content {
-      flex-direction: column;
-    }
-    section {
-      flex-direction: column;
+      .project-content {
+        flex-direction: column;
+      }
     }
     section {
       flex-direction: column-reverse;
@@ -394,12 +519,9 @@ export default {
         max-width: 400px;
         margin: 0 auto;
       }
-    }
-    .project-content {
-      flex-direction: column;
-    }
-    section {
-      flex-direction: column;
+      .project-content {
+        flex-direction: column;
+      }
     }
     section {
       flex-direction: column-reverse;

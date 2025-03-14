@@ -6,11 +6,11 @@
         <div>MFWEBDESIGN</div>
       </div>
       <div class="desktop nav-items">
-        <router-link class="button" to="/" :class="{ active: currRoute === '/' }">Home</router-link>
+        <!-- <router-link class="button" to="/" :class="{ active: currRoute === '/' }">Home</router-link>
         <router-link class="button" to="/experience" :class="{ active: currRoute === '/experience' }">Experience</router-link>
         <router-link class="button" to="/projects" :class="{ active: currRoute === '/projects' }">Projects</router-link>
         <a class="button secondary" to="/cv">CV</a>
-        <a class="button primary" to="/contact">Contact</a>
+        <a class="button primary" to="/contact">Contact</a> -->
       </div>
       <!-- <div class="mobile nav-items">
         <button class="menu-button" @click="showItems = !showItems"></button>
