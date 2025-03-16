@@ -54,11 +54,11 @@
         </div>
         <div class="graphic-contain">
           <div class="graphic-inner">
-            <img src="@/assets/react.png"/>
-            <img src="@/assets/mysql.png"/>
-            <img src="@/assets/laravel.png"/>
-            <img src="@/assets/git.png"/>
-            <img src="@/assets/vue.png"/>
+            <img src="@/assets/communication.png"/>
+            <img src="@/assets/responsive.png"/>
+            <img src="@/assets/tutor.png"/>
+            <img src="@/assets/seo.png"/>
+            <img src="@/assets/ui.png"/>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@
         </div>
       </div>
       <div class="project-cards">
-        <Card v-for="project in projects" :key="project.name">
+        <Card v-for="project in projects" :key="project.name" @click="currProject = project">
           <template v-slot:image>
             <img :src="project.image" alt="Project image"/>
           </template>
@@ -110,8 +110,8 @@
     </section>
     <section class="contact-contain container" id="contact">
       <h2>Contact</h2>
-      <p>Want to work together? I'd love to hear from you!</p>
-      <div class="form-container">
+      <p v-if="!formSuccess && !formError">Want to work together? I'd love to hear from you!</p>
+      <div v-if="!formSuccess && !formError" class="form-container">
         <form @submit.prevent="handleSubmit">
           <div class="form-group">
             <label for="name">Your name</label>
@@ -129,6 +129,12 @@
             <button type="submit" class="button large primary">Submit</button>
           </div>
         </form>
+      </div>
+      <div v-if="formSuccess" class="form-success">
+        <p>Thanks for getting in touch! I'll get back to you as soon as I can.</p>
+      </div>
+      <div v-if="formError" class="form-error">
+        <p><em>There was an error submitting the form. Please try again later.</em></p>
       </div>
     </section>
   </div>
@@ -154,7 +160,9 @@ export default {
         name: '',
         email: '',
         message: ''
-      }
+      },
+      formSuccess: false,
+      formError: false
     }
   },
   mounted () {
@@ -212,7 +220,17 @@ export default {
   },
   methods: {
     handleSubmit () {
-      console.log(this.form)
+      this.$axios.post('/contact', this.form).then(() => {
+        this.formSuccess = true
+        this.form = {
+          name: '',
+          email: '',
+          message: ''
+        }
+      }).catch((err) => {
+        console.error(err)
+        this.formError = true
+      })
     },
     scrollTo (id) {
       const el = document.getElementById(id)
@@ -421,9 +439,11 @@ export default {
       .text-contain, .image-contain {
         flex: 0.5;
       }
-      .image-contain img {
-        width: 100%;
-        border-radius: 0.5em;
+      .image-contain {
+        img {
+          width: 100%;
+          border-radius: 0.5em;
+        }
       }
       .text-contain .link-contain {
         margin-top: 1em;
@@ -458,17 +478,6 @@ export default {
         width: 50%;
         .form-group {
           margin-bottom: 1em;
-          label {
-            display: block;
-            margin-bottom: 0.5em;
-            text-align: left;
-          }
-          input, textarea {
-            width: 100%;
-            padding: 0.5em;
-            border-radius: 0.5em;
-            border: 1px solid colours.$textColour;
-          }
           textarea {
             height: 150px;
           }
@@ -478,6 +487,16 @@ export default {
           justify-content: center;
         }
       }
+    }
+    .form-success, .form-error {
+      text-align: center;
+      margin-top: 1em;
+    }
+    .form-success {
+      color: colours.$primary;
+    }
+    .form-error {
+      color: colours.$error;
     }
   }
   @include devices.device('phone', 'all') {
@@ -497,6 +516,11 @@ export default {
       }
       .project-content {
         flex-direction: column;
+      }
+      .project-cards {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
       }
     }
     section {

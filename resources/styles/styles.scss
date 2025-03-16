@@ -80,3 +80,18 @@ button, a.button {
     width: 100%;
   }
 }
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  text-align: left;
+}
+input, textarea {
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border: none;
+  background: colours.$textColour;
+  &:focus {
+    outline: 2px solid colours.$primary;
+  }
+}
