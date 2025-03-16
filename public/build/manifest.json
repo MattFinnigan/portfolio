@@ -1,15 +1,16 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app-DVOxugMA.js",
+    "file": "assets/app-DGPtU6b1.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-DK0H3QVc.css"
+      "assets/app-7BjGLl0s.css"
     ],
     "assets": [
       "assets/attribs-9oS8mNCP.txt",
       "assets/auralia-BH_SSYke.png",
+      "assets/communication-Cg0h4Fxd.png",
       "assets/git-DJHrNOw3.png",
       "assets/laravel-DNfGyyND.png",
       "assets/logo-light-BXNz9ZU5.png",
@@ -19,7 +20,11 @@
       "assets/penrite-DXjjx9Cl.png",
       "assets/profile-pic-DhkWgaoH.jpeg",
       "assets/react-DIuD0qnA.png",
+      "assets/responsive-D0DkdbyY.png",
+      "assets/seo-BQWGHJXa.png",
       "assets/skills-hero-CNmw1y9M.png",
+      "assets/tutor-DD2I8BOT.png",
+      "assets/ui-BdDZpP53.png",
       "assets/vue-CHTcNckV.png"
     ]
   },
@@ -30,6 +35,10 @@
   "resources/js/assets/auralia.png": {
     "file": "assets/auralia-BH_SSYke.png",
     "src": "resources/js/assets/auralia.png"
+  },
+  "resources/js/assets/communication.png": {
+    "file": "assets/communication-Cg0h4Fxd.png",
+    "src": "resources/js/assets/communication.png"
   },
   "resources/js/assets/git.png": {
     "file": "assets/git-DJHrNOw3.png",
@@ -67,9 +76,25 @@
     "file": "assets/react-DIuD0qnA.png",
     "src": "resources/js/assets/react.png"
   },
+  "resources/js/assets/responsive.png": {
+    "file": "assets/responsive-D0DkdbyY.png",
+    "src": "resources/js/assets/responsive.png"
+  },
+  "resources/js/assets/seo.png": {
+    "file": "assets/seo-BQWGHJXa.png",
+    "src": "resources/js/assets/seo.png"
+  },
   "resources/js/assets/skills-hero.png": {
     "file": "assets/skills-hero-CNmw1y9M.png",
     "src": "resources/js/assets/skills-hero.png"
+  },
+  "resources/js/assets/tutor.png": {
+    "file": "assets/tutor-DD2I8BOT.png",
+    "src": "resources/js/assets/tutor.png"
+  },
+  "resources/js/assets/ui.png": {
+    "file": "assets/ui-BdDZpP53.png",
+    "src": "resources/js/assets/ui.png"
   },
   "resources/js/assets/vue.png": {
     "file": "assets/vue-CHTcNckV.png",
