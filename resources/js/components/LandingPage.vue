@@ -500,6 +500,13 @@ export default {
     }
   }
   @include devices.device('phone', 'all') {
+    .contact-contain {
+      .form-container {
+        form {
+          width: 100%;
+        }
+      }
+    }
     ul {
       text-align: left;
     }
