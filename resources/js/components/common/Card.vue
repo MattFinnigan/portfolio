@@ -19,20 +19,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use 'sass:color';
 .card {
   background: colours.$secondary;
   box-shadow: 0 0 12px rgb(0 0 0 / 59%);
   border-radius: 10px;
-  width: 300px;
+  width: 250px;
   transition: box-shadow 0.3s;
   &:hover {
     box-shadow: 0 0 12px colours.$primary;
     cursor: pointer;
   }
   .card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: color.adjust(colours.$secondary, $lightness: 10%);
     :deep(img) {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
       width: 100%;
       max-height: 200px;
     }

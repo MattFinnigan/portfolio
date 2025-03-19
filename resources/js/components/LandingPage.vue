@@ -66,7 +66,15 @@
     <section class="projects-contain container" id="projects">
       <h2>Projects</h2>
       <div v-if="currProject" class="current-project">
-        <h4>{{ currProject.name }}</h4>
+        <div class="title-contain">
+          <h4>{{ currProject.name }}</h4>
+          <a v-if="currProject.github" class="button icon github" :href="currProject.github" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/github.png" alt="Github icon"/>
+          </a>
+          <a v-if="currProject.figma" class="button icon figma" :href="currProject.figma" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/figma.svg" alt="Figma icon"/>
+          </a>
+        </div>
         <div class="project-content">
           <div class="image-contain">
             <img :src="currProject.image" alt="Project image"/>
@@ -74,7 +82,7 @@
           <div class="text-contain">
             <div class="buttons-contain">
               <button :class="['button', 'secondary', 'full', 'large', { active: projActive === 'technical' }]" @click="projActive = 'technical'">Technical</button>
-              <button :class="['button', 'secondary', 'full', 'large', { active: projActive === 'nontechnical' }]" @click="projActive = 'nontechnical'">Non-technical</button>
+              <button v-if="currProject.points.nonTechnical.length" :class="['button', 'secondary', 'full', 'large', { active: projActive === 'nontechnical' }]" @click="projActive = 'nontechnical'">Non-technical</button>
             </div>
             <div class="link-contain">
               <a :href="currProject.link.url">{{ currProject.link.text }}</a>
@@ -207,6 +215,33 @@ export default {
           ]
         },
         image: 'penrite.png'
+      },
+      {
+        name: 'Personal Portfolio (This website)',
+        link: { text: 'My personal website, showcasing my work, skills, and experience (Full stack development)', url: 'https://mfwebdesign.com.au' },
+        tech: ['vue', 'laravel', 'mysql', 'git'],
+        points: {
+          technical: [
+            'Designed, developed & maintained the website',
+            'Developed & maintained the contact form, where users can send me messages'
+          ],
+          nonTechnical: []
+        },
+        image: 'portfolio.png',
+        github: 'https://github.com/MattFinnigan/portfolio',
+        figma: 'https://www.figma.com/design/RXPHklgwjkEVBE7GO9KJfd/Untitled?node-id=0-1&t=SBmZNrpoU9Wqbdp0-1'
+      },
+      {
+        name: 'Garden planner/journal (In Progress)',
+        link: { text: 'A garden planner/journal for gardeners to plan, track, and share their gardens (Full stack development)', url: 'http://garden.mfwebdesign.com.au' },
+        tech: ['vue', 'laravel', 'mysql', 'git'],
+        points: {
+          technical: ['Work in Progress'],
+          nonTechnical: ['Work in Progress'],
+        },
+        image: 'garden.png',
+        github: 'https://github.com/MattFinnigan/garden',
+        figma: 'https://www.figma.com/design/i7Xf3wtu7H2WLbGbMSH0yj/Garden?node-id=33-5&t=kWqxB3lMDccrSioO-1'
       }
     ]
     pjs.forEach((project, i) => {
@@ -432,6 +467,31 @@ export default {
     background: colours.$dark;
     h2 {
       margin-top: -55px;
+    }
+    .title-contain {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1em;
+      h4 {
+        margin: 0;
+      }
+      a {
+        margin: 0;
+        &.github {
+          img {
+            width: 30px;
+            height: auto;
+          }
+        }
+        &.figma {
+          padding-left: 0.25em;
+          img {
+            width: 15px;
+            height: auto;
+          }
+        }
+      }
     }
     .project-content {
       display: flex;
