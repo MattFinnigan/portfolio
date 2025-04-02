@@ -177,6 +177,33 @@ export default {
     document.title = 'MFWebDesign'
     const pjs = [
       {
+        name: 'Garden planner/journal',
+        link: { text: 'A garden planner/journal for gardeners to plan, track, and share their gardens (Full stack development)', url: 'http://garden.mfwebdesign.com.au' },
+        tech: ['vue', 'laravel', 'mysql', 'git'],
+        points: {
+          technical: ['Work in Progress'],
+          nonTechnical: ['Work in Progress'],
+        },
+        image: 'garden.png',
+        github: 'https://github.com/MattFinnigan/garden',
+        figma: 'https://www.figma.com/design/i7Xf3wtu7H2WLbGbMSH0yj/Garden?node-id=33-5&t=kWqxB3lMDccrSioO-1'
+      },
+      {
+        name: 'Personal Portfolio',
+        link: { text: 'My personal website, showcasing my work, skills, and experience (Full stack development)', url: 'https://mfwebdesign.com.au' },
+        tech: ['vue', 'laravel', 'mysql', 'git'],
+        points: {
+          technical: [
+            'Designed, developed & maintained the website',
+            'Developed & maintained the contact form, where users can send me messages'
+          ],
+          nonTechnical: []
+        },
+        image: 'portfolio.png',
+        github: 'https://github.com/MattFinnigan/portfolio',
+        figma: 'https://www.figma.com/design/RXPHklgwjkEVBE7GO9KJfd/Untitled?node-id=0-1&t=SBmZNrpoU9Wqbdp0-1'
+      },
+      {
         name: 'Auralia & Musition',
         link: { text: 'An ear training & music theory learning platform for universities, high schools & independent learners. (Front end development)', url: 'https://www.risingsoftware.com' },
         tech: ['vue', 'git'],
@@ -215,33 +242,6 @@ export default {
           ]
         },
         image: 'penrite.png'
-      },
-      {
-        name: 'Personal Portfolio (This website)',
-        link: { text: 'My personal website, showcasing my work, skills, and experience (Full stack development)', url: 'https://mfwebdesign.com.au' },
-        tech: ['vue', 'laravel', 'mysql', 'git'],
-        points: {
-          technical: [
-            'Designed, developed & maintained the website',
-            'Developed & maintained the contact form, where users can send me messages'
-          ],
-          nonTechnical: []
-        },
-        image: 'portfolio.png',
-        github: 'https://github.com/MattFinnigan/portfolio',
-        figma: 'https://www.figma.com/design/RXPHklgwjkEVBE7GO9KJfd/Untitled?node-id=0-1&t=SBmZNrpoU9Wqbdp0-1'
-      },
-      {
-        name: 'Garden planner/journal (In Progress)',
-        link: { text: 'A garden planner/journal for gardeners to plan, track, and share their gardens (Full stack development)', url: 'http://garden.mfwebdesign.com.au' },
-        tech: ['vue', 'laravel', 'mysql', 'git'],
-        points: {
-          technical: ['Work in Progress'],
-          nonTechnical: ['Work in Progress'],
-        },
-        image: 'garden.png',
-        github: 'https://github.com/MattFinnigan/garden',
-        figma: 'https://www.figma.com/design/i7Xf3wtu7H2WLbGbMSH0yj/Garden?node-id=33-5&t=kWqxB3lMDccrSioO-1'
       }
     ]
     pjs.forEach((project, i) => {
